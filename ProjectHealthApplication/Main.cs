@@ -240,7 +240,7 @@ namespace ProjectHealthApplication
                 cmd.CommandTimeout = 3600000;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Calculation Completed Successfully.");
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT [ITEM_NO],	[PR-DATE],	[PRCL-IND],	[330-IND],	[S1C2],	[UD1],	[PRCL/PRCL-IND-CNT1],	[UD2],	[PRCL/PRCL-IND-CNT2],	[UD3],	[PRCL/PRCL-IND-CNT3],	[PRCL/C2-CNT1],	[PRCL/C2-CNT2],	[PRCL/C3-CNT3],	[RED/INC],	[PP-RNG-UD],	[GAP-LMT],	[IND-GAP],	[LIND],	[MIND],	[Res9],	[Res8],	[Res7],	[Res6],	[Res5],	[Res4],	[Res3],	[Res2],	[Res1],	[TOT], [ALL-CNT(P/N)],	[GREEN],[ACC/TOT],[3COL/NET], [ACC/3COL],	[COMM],	[IRES], [PRFIN-IND],[UD1] AS [_UD1],[PRCL/330IND-R1-C],[UD2] AS [_UD2],[PRCL/330IND-R2-C],[UD3] AS [_UD3],[PRCL/330IND-R3-C],[PR-S1C1],[PR-S1C2],[PR-S1C3],[MinNoOfCells],[PR-DATE],[2COL/NET],	[4COL/NET],	[3COL/ST/ALIGNED],	[3COL/ST/GAP],	[S1/LH/CNT/SUM],	[S2/LH/CNT/SUM],	[S3/LH/CNT/SUM],	[LH-MINUS-SUM/S1+S2+S3(ADD ONLY MINUSES, ELSE 0)], [NO-OF-Ls/NO-OF-Hs],[ACC/X],[RED/AVG-POS],[RED/AVG-NEG],NULL,[RED-P/13&12&23ROWS-TR],[RED-N/13&12&23ROWS-TR],NULL,[UP/SUM],[DW/SUM],NULL,[UP/CNT],[DW/CNT],NULL,[PP-PRCL-PPOP/33IND-PPCL/NET-AVG] FROM[dbo].[ProjectHelathEntryResult] ORDER BY ITEM_NO ASC, [RED/INC] desc", sqlcon);
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT [ITEM_NO],	[PR-DATE],	[PRCL-IND],	[330-IND],	[S1C2],	[UD1],	[PRCL/PRCL-IND-CNT1],	[UD2],	[PRCL/PRCL-IND-CNT2],	[UD3],	[PRCL/PRCL-IND-CNT3],	[PRCL/C2-CNT1],	[PRCL/C2-CNT2],	[PRCL/C3-CNT3],	[RED/INC],	[PP-RNG-UD],	[GAP-LMT],	[IND-GAP],	[LIND],	[MIND],	[Res9],	[Res8],	[Res7],	[Res6],	[Res5],	[Res4],	[Res3],	[Res2],	[Res1],	[TOT], [ALL-CNT(P/N)],	[GREEN],[ACC/TOT],[3COL/NET], [ACC/3COL],	[COMM],	[IRES], [PRFIN-IND],[UD1] AS [_UD1],[PRCL/330IND-R1-C],[UD2] AS [_UD2],[PRCL/330IND-R2-C],[UD3] AS [_UD3],[PRCL/330IND-R3-C],[PR-S1C1],[PR-S1C2],[PR-S1C3],[MinNoOfCells],[PR-DATE],[2COL/NET],	[4COL/NET],	[3COL/ST/ALIGNED],	[3COL/ST/GAP],	[S1/LH/CNT/SUM],	[S2/LH/CNT/SUM],	[S3/LH/CNT/SUM],	[LH-MINUS-SUM/S1+S2+S3(ADD ONLY MINUSES, ELSE 0)], [NO-OF-Ls/NO-OF-Hs],[ACC/X],[RED/AVG-POS],[RED/AVG-NEG],NULL,[RED-P/13&12&23ROWS-TR],[RED-N/13&12&23ROWS-TR],NULL,[UP/SUM],[DW/SUM],NULL,[UP/CNT],[DW/CNT],NULL,[13&12&23/UP/CNT],[13&12&23/ DW/CNT],NULL,[UP/AMT-AVG],[DW/AMT-AVG],[ACC],NULL,[PP-PRCL-PPOP/33IND-PPCL/NET-AVG] FROM[dbo].[ProjectHelathEntryResult] ORDER BY ITEM_NO ASC, [RED/INC] desc", sqlcon);
                 DataSet ds = new DataSet();
                 sda.Fill(ds, "ProjectHelathEntryResult");
                 dgv3.DataSource = ds;
@@ -390,8 +390,11 @@ namespace ProjectHealthApplication
                                 namedWorksheet.Cells[1, 68].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                                 namedWorksheet.Cells[1, 71].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[1, 71].Style.Fill.BackgroundColor.SetColor(Color.Blue);
-                                //namedWorksheet.Cells[1, 68].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                //namedWorksheet.Cells[1, 68].Style.Fill.BackgroundColor.SetColor(Color.LightGoldenrodYellow);
+                                namedWorksheet.Cells[1, 74].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[1, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                
 
                                 namedWorksheet.View.FreezePanes(2, 1);
                                 //Rng.AutoFitColumns();
@@ -478,10 +481,15 @@ namespace ProjectHealthApplication
                                     Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.LawnGreen);
                                 }
-                                else if (k == 61 || k == 64 || k == 67 || k == 70)
+                                else if (k == 61 || k == 64 || k == 67 || k == 70 || k == 77)
                                 {
                                     Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                }
+                                else if (k == 73)
+                                {
+                                    Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    Rng.Style.Fill.BackgroundColor.SetColor(Color.Green);
                                 }
                                 else
                                 {
@@ -489,7 +497,7 @@ namespace ProjectHealthApplication
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.White);
                                 }
 
-                                if(k == 61 || k == 64 || k == 67 || k == 70)
+                                if(k == 61 || k == 64 || k == 67 || k == 70 || k == 73 || k == 77)
                                 {
                                     namedWorksheet.Column(k + 1).Width = 2;
                                 }
@@ -569,8 +577,11 @@ namespace ProjectHealthApplication
                                     namedWorksheet.Cells[i, 68].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                                     namedWorksheet.Cells[i, 71].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     namedWorksheet.Cells[i, 71].Style.Fill.BackgroundColor.SetColor(Color.Blue);
-                                    //namedWorksheet.Cells[i, 68].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                    //namedWorksheet.Cells[i, 68].Style.Fill.BackgroundColor.SetColor(Color.DarkGoldenrod);
+                                    namedWorksheet.Cells[i, 74].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                    namedWorksheet.Cells[i, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                    
 
                                 }
                             }
@@ -630,8 +641,10 @@ namespace ProjectHealthApplication
                                     namedWorksheet.Cells[i, 68].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                                     namedWorksheet.Cells[i, 71].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     namedWorksheet.Cells[i, 71].Style.Fill.BackgroundColor.SetColor(Color.Blue);
-                                    //namedWorksheet.Cells[i, 68].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                    //namedWorksheet.Cells[i, 68].Style.Fill.BackgroundColor.SetColor(Color.DarkGoldenrod);
+                                    namedWorksheet.Cells[i, 74].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                    namedWorksheet.Cells[i, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                                 }
                             }
                             //MessageBox.Show(namedWorksheet.Cells[i, 1].Value.ToString());
@@ -687,7 +700,7 @@ namespace ProjectHealthApplication
                             if (j1 == "RED" && k1 == "INC")
                             {
                                     namedWorksheet.InsertRow(s + 1, 1);
-                                    namedWorksheet.Cells[s + 1, 15].Value = "TOTAL_RED";
+                                    namedWorksheet.Cells[s + 1, 15].Value = "ST_RED";
                                 namedWorksheet.Cells[s + 1, 30].Value = Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[s, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[s, 30].Value))
                                         + Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[s-1, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[s-1, 30].Value))
                                         + Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[s-2, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[s-2, 30].Value));
@@ -715,8 +728,8 @@ namespace ProjectHealthApplication
                             if (j1 == "INC" && k1 == "RED")
                             {
                                 namedWorksheet.InsertRow(s+1, 2);
-                                namedWorksheet.Cells[s + 1, 15].Value = "TOTAL_INC";
-                                namedWorksheet.Cells[s + 2, 15].Value = "TOTAL_RED_INC";
+                                namedWorksheet.Cells[s + 1, 15].Value = "ST_INC";
+                                namedWorksheet.Cells[s + 2, 15].Value = "T_RI";
                                 namedWorksheet.Cells[s + 1, 30].Value = Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[s, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[s, 30].Value))
                                         + Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[s - 1, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[s - 1, 30].Value))
                                         + Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[s - 2, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[s - 2, 30].Value));
@@ -747,8 +760,8 @@ namespace ProjectHealthApplication
                         }
                         //MessageBox.Show(cntRow.ToString());
                         namedWorksheet.InsertRow(cntRow + 1, 2);
-                        namedWorksheet.Cells[cntRow + 1, 15].Value = "TOTAL_INC";
-                        namedWorksheet.Cells[cntRow + 2, 15].Value = "TOTAL_RED_INC";
+                        namedWorksheet.Cells[cntRow + 1, 15].Value = "ST_INC";
+                        namedWorksheet.Cells[cntRow + 2, 15].Value = "T_RI";
                         namedWorksheet.Cells[cntRow + 1, 30].Value = Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[cntRow, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[cntRow, 30].Value))
                                         + Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[cntRow - 1, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[cntRow - 1, 30].Value))
                                         + Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[cntRow - 2, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[cntRow - 2, 30].Value));
@@ -772,12 +785,101 @@ namespace ProjectHealthApplication
                             
                         for (int mm=2;mm<= cntRow+2;mm++)
                         {
-                            if(Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "TOTAL_RED")
+                            if(Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "ST_RED")
                             {
                                 P = Convert.ToDecimal(namedWorksheet.Cells[mm, 30].Value);
                                 R = Convert.ToDecimal(namedWorksheet.Cells[mm, 34].Value);
                                 t = namedWorksheet.Cells[mm, 31].Value.ToString();
 
+                                var L_ITEMNO = Convert.ToInt32(namedWorksheet.Cells[mm - 1, 1].Value.ToString());
+                                var resultRU_4 ="";
+                                var resultRD_4 = "";
+
+                                var StrRU_4 = "SELECT dbo.fnCalculateUPSUM(" + "'" + L_ITEMNO.ToString().Trim() + "U" + "'" + ")";
+                                
+                                using (SqlCommand cmdRU_4 = new SqlCommand(StrRU_4, sqlcon))
+                                {
+                                    resultRU_4 = Convert.ToString(cmdRU_4.ExecuteScalar());
+                                    namedWorksheet.Cells[mm, 72].Value = resultRU_4;
+                                }
+                                var StrRD_4 = "SELECT dbo.fnCalculateUPSUM(" + "'" + L_ITEMNO.ToString().Trim() + "D" + "'" + ")";
+
+                                using (SqlCommand cmdRD_4 = new SqlCommand(StrRD_4, sqlcon))
+                                {
+                                    resultRD_4 = Convert.ToString(cmdRD_4.ExecuteScalar());
+                                    namedWorksheet.Cells[mm, 73].Value = resultRD_4;
+                                }
+                                /*
+                                var StrL_5 = "SELECT dbo.fnCalculateUPDWAVG(" + "'" + L_ITEMNO.ToString().Trim() + "U" + "'" + ")";
+                                using (SqlCommand cmdL_5 = new SqlCommand(StrL_5, sqlcon))
+                                {
+                                    var resultL_5 = cmdL_5.ExecuteScalar();
+                                    namedWorksheet.Cells[mm, 75].Value = resultL_5;
+                                }
+                                */
+                                String StrL_5 = "SP_CalllingCalculateAVGAMT2NDROW";
+                                //MessageBox.Show(var);
+                                String ItemNOU = L_ITEMNO.ToString().Trim() + "U";
+                                String ItemNOD = L_ITEMNO.ToString().Trim() + "D";
+                                SqlCommand cmdL_5 = new SqlCommand();
+                                cmdL_5.Connection = sqlcon;
+                                cmdL_5.CommandText = StrL_5;
+                                cmdL_5.CommandType = CommandType.StoredProcedure;
+                                cmdL_5.Parameters.Add("@Var_ITEM_NO", SqlDbType.VarChar).Value = ItemNOU.ToString();
+                                //MessageBox.Show("'" + L_ITEMNO.ToString().Trim() + "U" + "'");
+                                cmdL_5.CommandTimeout = 3600000;
+                                cmdL_5.ExecuteNonQuery();
+
+                                SqlCommand cmll_5 = new SqlCommand("SELECT AVGAMT FROM Result_AVGAMT", sqlcon);
+                                string resultL_5 = "";
+                                SqlDataReader rdr = cmll_5.ExecuteReader();
+                                while (rdr.Read())
+                                {
+                                    resultL_5 = rdr["AVGAMT"].ToString();
+                                }
+                                rdr.Close();
+                                namedWorksheet.Cells[mm, 75].Value = resultL_5;
+
+                                //next column
+                                String StrL_6 = "SP_CalllingCalculateAVGAMT2NDROW";
+                                SqlCommand cmdL_6 = new SqlCommand();
+                                cmdL_6.Connection = sqlcon;
+                                cmdL_6.CommandText = StrL_6;
+                                cmdL_6.CommandType = CommandType.StoredProcedure;
+                                cmdL_6.Parameters.Add("@Var_ITEM_NO", SqlDbType.VarChar).Value = ItemNOD.ToString();
+                                //MessageBox.Show("'" + L_ITEMNO.ToString().Trim() + "U" + "'");
+                                cmdL_6.CommandTimeout = 3600000;
+                                cmdL_6.ExecuteNonQuery();
+
+                                SqlCommand cmll_6 = new SqlCommand("SELECT AVGAMT FROM Result_AVGAMT", sqlcon);
+                                string resultL_6 = "";
+                                SqlDataReader rdr6 = cmll_6.ExecuteReader();
+                                while (rdr6.Read())
+                                {
+                                    resultL_6 = rdr6["AVGAMT"].ToString();
+                                }
+                                rdr6.Close();
+                                namedWorksheet.Cells[mm, 76].Value = resultL_6;
+
+                                
+                                var StrUDIRES = Convert.ToDecimal(namedWorksheet.Cells[mm - 1, 37].Value);
+                                //MessageBox.Show(StrUDIRES.ToString());
+                                //MessageBox.Show(resultRU_4.ToString());
+                                //MessageBox.Show(Convert.ToInt32((resultRU_4.Replace("UP", "")).Replace("DW", "")).ToString());
+
+                                if((( Convert.ToInt32((resultRU_4.Replace(@"UP/","")).Replace(@"DW/",""))> Convert.ToInt32((resultRD_4.Replace(@"UP/", "")).Replace(@"DW/", "")) ) && StrUDIRES>0) )
+                                {
+                                    namedWorksheet.Cells[mm, 77].Value = "C";
+                                }
+                                else if (((Convert.ToInt32((resultRU_4.Replace(@"UP/", "")).Replace(@"DW/", "")) < Convert.ToInt32((resultRD_4.Replace(@"UP/", "")).Replace(@"DW/", ""))) && StrUDIRES < 0))
+                                {
+                                    namedWorksheet.Cells[mm, 77].Value = "C";
+                                }
+                                else
+                                {
+                                    namedWorksheet.Cells[mm, 77].Value = "W";
+                                }
+                                
                                 namedWorksheet.Cells[mm, 62].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[mm, 62].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                                 namedWorksheet.Cells[mm, 65].Style.Fill.PatternType = ExcelFillStyle.Solid;
@@ -786,8 +888,12 @@ namespace ProjectHealthApplication
                                 namedWorksheet.Cells[mm, 68].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                                 namedWorksheet.Cells[mm, 71].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[mm, 71].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 74].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                             }
-                            if (Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "TOTAL_INC")
+                            if (Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "ST_INC")
                             {
                                 Q = Convert.ToDecimal(namedWorksheet.Cells[mm, 30].Value);
                                 S = Convert.ToDecimal(namedWorksheet.Cells[mm, 34].Value);
@@ -801,8 +907,12 @@ namespace ProjectHealthApplication
                                 namedWorksheet.Cells[mm, 68].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                                 namedWorksheet.Cells[mm, 71].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[mm, 71].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 74].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                             }
-                            if (Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "TOTAL_RED_INC")
+                            if (Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "T_RI")
                             {
                                 namedWorksheet.Cells[mm, 62].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[mm, 62].Style.Fill.BackgroundColor.SetColor(Color.Blue);
@@ -812,6 +922,10 @@ namespace ProjectHealthApplication
                                 namedWorksheet.Cells[mm, 68].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                                 namedWorksheet.Cells[mm, 71].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[mm, 71].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 74].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
 
                                 for (int l = 1; l <= dgv3.ColumnCount; l++)
                                 {
@@ -836,7 +950,7 @@ namespace ProjectHealthApplication
                         }
                         for (int mn = 2; mn <= cntRow + 2; mn++)
                         {
-                            if (Convert.ToString(namedWorksheet.Cells[mn, 15].Value) == "TOTAL_RED_INC")
+                            if (Convert.ToString(namedWorksheet.Cells[mn, 15].Value) == "T_RI")
                             {
                                 //MessageBox.Show(namedWorksheet.Cells[mn-2, 1].Value.ToString());
                                 var L_ITEMNO = Convert.ToInt32(namedWorksheet.Cells[mn - 2, 1].Value.ToString());
@@ -869,7 +983,6 @@ namespace ProjectHealthApplication
                                     var resultL8 = cmdL8.ExecuteScalar();
                                     namedWorksheet.Cells[mn, 70].Value = resultL8;
                                 }
-
 
                                 var T_Value = Convert.ToDecimal(namedWorksheet.Cells[mn, 30].Value.ToString());
                                 var T_3COLValue = Convert.ToDecimal(namedWorksheet.Cells[mn, 34].Value.ToString());
@@ -1053,7 +1166,7 @@ namespace ProjectHealthApplication
                                 
                             }
 
-                            if(Convert.ToString(namedWorksheet.Cells[mn, 15].Value) == "TOTAL_RED")
+                            if(Convert.ToString(namedWorksheet.Cells[mn, 15].Value) == "ST_RED")
                             {
                                 var T_Value = Convert.ToDecimal(namedWorksheet.Cells[mn, 30].Value.ToString());
                                 var T_3COLValue = Convert.ToDecimal(namedWorksheet.Cells[mn, 34].Value.ToString());
@@ -1322,7 +1435,7 @@ namespace ProjectHealthApplication
                                         namedWorksheet.Cells[mn, 58].Value = result1_12.ToString();
                                         //End of Calculation for column [NO-OF-Ls/NO-OF-Hs]
                             }
-                            if (Convert.ToString(namedWorksheet.Cells[mn, 15].Value) == "TOTAL_INC")
+                            if (Convert.ToString(namedWorksheet.Cells[mn, 15].Value) == "ST_INC")
                             {
                                 var T_Value = Convert.ToDecimal(namedWorksheet.Cells[mn, 30].Value.ToString());
                                 var T_3COLValue = Convert.ToDecimal(namedWorksheet.Cells[mn, 34].Value.ToString());
@@ -2432,8 +2545,8 @@ namespace ProjectHealthApplication
                                     namedWorksheet.InsertRow(s + 1, 2);
                                     namedWorksheet.Cells[s + 1, 15].Value = "TOTAL_PRCL/330IND->PPOP/PPCL";
                                     namedWorksheet.Cells[s + 1, 45].Value = "TOTAL_PRCL/330IND->PPOP/PPCL";
-                                    namedWorksheet.Cells[s + 2, 15].Value = "TOTAL_RED_INC";
-                                    namedWorksheet.Cells[s + 2, 45].Value = "TOTAL_RED_INC";
+                                    namedWorksheet.Cells[s + 2, 15].Value = "T_RI";
+                                    namedWorksheet.Cells[s + 2, 45].Value = "T_RI";
                                 namedWorksheet.Cells[s + 1, 30].Value = Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[s, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[s, 30].Value))
                                         + Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[s - 1, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[s - 1, 30].Value));
                                 //+ Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[s - 2, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[s - 2, 30].Value));
@@ -2467,8 +2580,8 @@ namespace ProjectHealthApplication
                             namedWorksheet.InsertRow(cntRow + 1, 2);
                             namedWorksheet.Cells[cntRow + 1, 15].Value = "TOTAL_PRCL/330IND->PPOP/PPCL";
                             namedWorksheet.Cells[cntRow + 1, 45].Value = "TOTAL_PRCL/330IND->PPOP/PPCL";
-                            namedWorksheet.Cells[cntRow + 2, 15].Value = "TOTAL_RED_INC";
-                            namedWorksheet.Cells[cntRow + 2, 45].Value = "TOTAL_RED_INC";
+                            namedWorksheet.Cells[cntRow + 2, 15].Value = "T_RI";
+                            namedWorksheet.Cells[cntRow + 2, 45].Value = "T_RI";
                         namedWorksheet.Cells[cntRow + 1, 30].Value = Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[cntRow, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[cntRow, 30].Value))
                                         + Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[cntRow - 1, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[cntRow - 1, 30].Value));
                         //+ Convert.ToDecimal(String.IsNullOrEmpty(Convert.ToString(namedWorksheet.Cells[cntRow - 2, 30].Value)) ? "0" : Convert.ToString(namedWorksheet.Cells[cntRow - 2, 30].Value));
@@ -2511,7 +2624,7 @@ namespace ProjectHealthApplication
                                     S1 = Convert.ToDecimal(namedWorksheet.Cells[mm, 34].Value);
                                     v11 = namedWorksheet.Cells[mm, 31].Value.ToString();
                                 }
-                                if (Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "TOTAL_RED_INC")
+                                if (Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "T_RI")
                                 {
                                     for (int l = 1; l <= dgv3.ColumnCount; l++)
                                     {
@@ -2538,7 +2651,7 @@ namespace ProjectHealthApplication
                             }
                             for (int mn = 2; mn <= cntRow + 2; mn++)
                             {
-                                if (Convert.ToString(namedWorksheet.Cells[mn, 15].Value) == "TOTAL_RED_INC")
+                                if (Convert.ToString(namedWorksheet.Cells[mn, 15].Value) == "T_RI")
                                 {
 
                                     var T_Value = Convert.ToDecimal(namedWorksheet.Cells[mn, 30].Value.ToString());
