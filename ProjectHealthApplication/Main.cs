@@ -889,6 +889,31 @@ namespace ProjectHealthApplication
                                 namedWorksheet.Cells[mm, 80].Value = namedWorksheet.Cells[mm - 1, 80].Value.ToString();
                                 namedWorksheet.Cells[mm, 81].Value = namedWorksheet.Cells[mm - 1, 81].Value.ToString();
 
+                                //set null
+                                namedWorksheet.Cells[mm - 1, 79].Value = null;
+                                namedWorksheet.Cells[mm - 1, 80].Value = null;
+                                namedWorksheet.Cells[mm - 1, 81].Value = null;
+
+                                namedWorksheet.Cells[mm - 2, 79].Value = null;
+                                namedWorksheet.Cells[mm - 2, 80].Value = null;
+                                namedWorksheet.Cells[mm - 2, 81].Value = null;
+
+                                namedWorksheet.Cells[mm - 3, 79].Value = null;
+                                namedWorksheet.Cells[mm - 3, 80].Value = null;
+                                namedWorksheet.Cells[mm - 3, 81].Value = null;
+
+                                namedWorksheet.Cells[mm + 1, 79].Value = null;
+                                namedWorksheet.Cells[mm + 1, 80].Value = null;
+                                namedWorksheet.Cells[mm + 1, 81].Value = null;
+
+                                namedWorksheet.Cells[mm + 2, 79].Value = null;
+                                namedWorksheet.Cells[mm + 2, 80].Value = null;
+                                namedWorksheet.Cells[mm + 2, 81].Value = null;
+
+                                namedWorksheet.Cells[mm + 3, 79].Value = null;
+                                namedWorksheet.Cells[mm + 3, 80].Value = null;
+                                namedWorksheet.Cells[mm + 3, 81].Value = null;
+
                                 String StrL_LL6 = "SP_UPDATECOL798081";
                                 SqlCommand cmdL_LL6 = new SqlCommand();
                                 cmdL_LL6.Connection = sqlcon;
