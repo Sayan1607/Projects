@@ -240,7 +240,7 @@ namespace ProjectHealthApplication
                 cmd.CommandTimeout = 3600000;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Calculation Completed Successfully.");
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT [ITEM_NO],	[PR-DATE],	[PRCL-IND],	[330-IND],	[S1C2],	[UD1],	[PRCL/PRCL-IND-CNT1],	[UD2],	[PRCL/PRCL-IND-CNT2],	[UD3],	[PRCL/PRCL-IND-CNT3],	[PRCL/C2-CNT1],	[PRCL/C2-CNT2],	[PRCL/C3-CNT3],	[RED/INC],	[PP-RNG-UD],	[GAP-LMT],	[IND-GAP],	[LIND],	[MIND],	[Res9],	[Res8],	[Res7],	[Res6],	[Res5],	[Res4],	[Res3],	[Res2],	[Res1],	[TOT], [ALL-CNT(P/N)],	[GREEN],[ACC/TOT],[3COL/NET], [ACC/3COL],	[COMM],	[IRES], [PRFIN-IND],[UD1] AS [_UD1],[PRCL/330IND-R1-C],[UD2] AS [_UD2],[PRCL/330IND-R2-C],[UD3] AS [_UD3],[PRCL/330IND-R3-C],[PR-S1C1],[PR-S1C2],[PR-S1C3],[MinNoOfCells],[PR-DATE],[2COL/NET],	[4COL/NET],	[3COL/ST/ALIGNED],	[3COL/ST/GAP],	[S1/LH/CNT/SUM],	[S2/LH/CNT/SUM],	[S3/LH/CNT/SUM],	[LH-MINUS-SUM/S1+S2+S3(ADD ONLY MINUSES, ELSE 0)], [NO-OF-Ls/NO-OF-Hs],[ACC/X],[RED/AVG-POS],[RED/AVG-NEG],NULL,[RED-P/13&12&23ROWS-TR],[RED-N/13&12&23ROWS-TR],NULL,[UP/SUM],[DW/SUM],NULL,[UP/CNT],[DW/CNT],NULL,[13&12&23/UP/CNT],[13&12&23/ DW/CNT],NULL,[UP/AMT-AVG],[DW/AMT-AVG],[ACC],NULL,[PP-PRCL-PPOP/33IND-PPCL/NET-AVG] FROM[dbo].[ProjectHelathEntryResult] ORDER BY ITEM_NO ASC, [RED/INC] desc", sqlcon);
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT [ITEM_NO],	[PR-DATE],	[PRCL-IND],	[330-IND],	[S1C2],	[UD1],	[PRCL/PRCL-IND-CNT1],	[UD2],	[PRCL/PRCL-IND-CNT2],	[UD3],	[PRCL/PRCL-IND-CNT3],	[PRCL/C2-CNT1],	[PRCL/C2-CNT2],	[PRCL/C3-CNT3],	[RED/INC],	[PP-RNG-UD],	[GAP-LMT],	[IND-GAP],	[LIND],	[MIND],	[Res9],	[Res8],	[Res7],	[Res6],	[Res5],	[Res4],	[Res3],	[Res2],	[Res1],	[TOT], [ALL-CNT(P/N)],	[GREEN],[ACC/TOT],[3COL/NET], [ACC/3COL],	[COMM],	[IRES], [PRFIN-IND],[UD1] AS [_UD1],[PRCL/330IND-R1-C],[UD2] AS [_UD2],[PRCL/330IND-R2-C],[UD3] AS [_UD3],[PRCL/330IND-R3-C],[PR-S1C1],[PR-S1C2],[PR-S1C3],[MinNoOfCells],[PR-DATE],[2COL/NET],	[4COL/NET],	[3COL/ST/ALIGNED],	[3COL/ST/GAP],	[S1/LH/CNT/SUM],	[S2/LH/CNT/SUM],	[S3/LH/CNT/SUM],	[LH-MINUS-SUM/S1+S2+S3(ADD ONLY MINUSES, ELSE 0)], [NO-OF-Ls/NO-OF-Hs],[ACC/X],[RED/AVG-POS],[RED/AVG-NEG],NULL,[RED-P/13&12&23ROWS-TR],[RED-N/13&12&23ROWS-TR],NULL,[UP/SUM],[DW/SUM],NULL,[UP/CNT],[DW/CNT],NULL,[13&12&23/UP/CNT],[13&12&23/ DW/CNT],NULL,[UP/AMT-AVG],[DW/AMT-AVG],[ACC],NULL,[DIFF/330IN-PRCL],[PP-PRCL-PPCL/DIF(OP-CL)//NET-AV],[NET-AVG],[TR],NULL,[PP-PRCL-PPOP/33IND-PPCL/NET-AVG] FROM[dbo].[ProjectHelathEntryResult] ORDER BY ITEM_NO ASC, [RED/INC] desc", sqlcon);
                 DataSet ds = new DataSet();
                 sda.Fill(ds, "ProjectHelathEntryResult");
                 dgv3.DataSource = ds;
@@ -394,7 +394,8 @@ namespace ProjectHealthApplication
                                 namedWorksheet.Cells[1, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
                                 namedWorksheet.Cells[1, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[1, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
-                                
+                                namedWorksheet.Cells[1, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 83].Style.Fill.BackgroundColor.SetColor(Color.Blue);
 
                                 namedWorksheet.View.FreezePanes(2, 1);
                                 //Rng.AutoFitColumns();
@@ -481,7 +482,7 @@ namespace ProjectHealthApplication
                                     Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.LawnGreen);
                                 }
-                                else if (k == 61 || k == 64 || k == 67 || k == 70 || k == 77)
+                                else if (k == 61 || k == 64 || k == 67 || k == 70 || k == 77 || k == 82)
                                 {
                                     Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.Blue);
@@ -497,7 +498,7 @@ namespace ProjectHealthApplication
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.White);
                                 }
 
-                                if(k == 61 || k == 64 || k == 67 || k == 70 || k == 73 || k == 77)
+                                if(k == 61 || k == 64 || k == 67 || k == 70 || k == 73 || k == 77 || k == 82)
                                 {
                                     namedWorksheet.Column(k + 1).Width = 2;
                                 }
@@ -581,7 +582,8 @@ namespace ProjectHealthApplication
                                     namedWorksheet.Cells[i, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
                                     namedWorksheet.Cells[i, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     namedWorksheet.Cells[i, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
-                                    
+                                    namedWorksheet.Cells[i, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 83].Style.Fill.BackgroundColor.SetColor(Color.Blue);
 
                                 }
                             }
@@ -645,6 +647,8 @@ namespace ProjectHealthApplication
                                     namedWorksheet.Cells[i, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
                                     namedWorksheet.Cells[i, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     namedWorksheet.Cells[i, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                    namedWorksheet.Cells[i, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 83].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                                 }
                             }
                             //MessageBox.Show(namedWorksheet.Cells[i, 1].Value.ToString());
@@ -879,7 +883,24 @@ namespace ProjectHealthApplication
                                 {
                                     namedWorksheet.Cells[mm, 77].Value = "W";
                                 }
-                                
+
+                                //NEW COL
+                                namedWorksheet.Cells[mm, 79].Value = namedWorksheet.Cells[mm - 1, 79].Value.ToString();
+                                namedWorksheet.Cells[mm, 80].Value = namedWorksheet.Cells[mm - 1, 80].Value.ToString();
+                                namedWorksheet.Cells[mm, 81].Value = namedWorksheet.Cells[mm - 1, 81].Value.ToString();
+
+                                String StrL_LL6 = "SP_UPDATECOL798081";
+                                SqlCommand cmdL_LL6 = new SqlCommand();
+                                cmdL_LL6.Connection = sqlcon;
+                                cmdL_LL6.CommandText = StrL_LL6;
+                                cmdL_LL6.CommandType = CommandType.StoredProcedure;
+                                //MessageBox.Show(L_ITEMNO.ToString().Trim());
+                                cmdL_LL6.Parameters.Add("@VAR_ITEMNO", SqlDbType.Int).Value = Convert.ToInt32(L_ITEMNO.ToString().Trim());
+                                //MessageBox.Show("'" + L_ITEMNO.ToString().Trim() + "U" + "'");
+                                cmdL_LL6.CommandTimeout = 3600000;
+                                cmdL_LL6.ExecuteNonQuery();
+                                //END NEW COL
+
                                 namedWorksheet.Cells[mm, 62].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[mm, 62].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                                 namedWorksheet.Cells[mm, 65].Style.Fill.PatternType = ExcelFillStyle.Solid;
@@ -892,6 +913,8 @@ namespace ProjectHealthApplication
                                 namedWorksheet.Cells[mm, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
                                 namedWorksheet.Cells[mm, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[mm, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 83].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                             }
                             if (Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "ST_INC")
                             {
@@ -911,6 +934,8 @@ namespace ProjectHealthApplication
                                 namedWorksheet.Cells[mm, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
                                 namedWorksheet.Cells[mm, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[mm, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 83].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                             }
                             if (Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "T_RI")
                             {
@@ -926,6 +951,8 @@ namespace ProjectHealthApplication
                                 namedWorksheet.Cells[mm, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
                                 namedWorksheet.Cells[mm, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[mm, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 83].Style.Fill.BackgroundColor.SetColor(Color.Blue);
 
                                 for (int l = 1; l <= dgv3.ColumnCount; l++)
                                 {
@@ -1889,14 +1916,24 @@ namespace ProjectHealthApplication
                     DataTable dtExcelData = new DataTable();
 
                     //[OPTIONAL]: It is recommended as otherwise the data will be considered as String by default.
-                    dtExcelData.Columns.AddRange(new DataColumn[10] { new DataColumn("PP-ITEM-NO", typeof(int)),
+                    dtExcelData.Columns.AddRange(new DataColumn[20] { new DataColumn("PP-ITEM-NO", typeof(int)),
                 new DataColumn("PP-DATE", typeof(DateTime)),
                 new DataColumn("PP-OP-IND", typeof(decimal)),
                 new DataColumn("PP-CL-IND", typeof(decimal)),
+                new DataColumn("PP-DIF(OP-CL)",typeof(decimal)),
+                new DataColumn("PP-DIF(CL-OP)",typeof(decimal)),
                 new DataColumn("PP-S1C1", typeof(decimal)),
                 new DataColumn("PP-S1C2", typeof(decimal)),
                 new DataColumn("PP-S1C3", typeof(decimal)),
-                new DataColumn("HI VOL", typeof(decimal)),
+                new DataColumn("PP-N1", typeof(decimal)),
+                new DataColumn("PP-N11", typeof(decimal)),
+                new DataColumn("PP-N2", typeof(decimal)),
+                new DataColumn("PP-N3", typeof(decimal)),
+                new DataColumn("PP-N4", typeof(decimal)),
+                new DataColumn("PP-N5", typeof(decimal)),
+                new DataColumn("PP-N6/TOT", typeof(decimal)),
+                new DataColumn("PP-AVG", typeof(decimal)),
+                new DataColumn("PP-N1-N2", typeof(decimal)),
                 new DataColumn("PP-IRES", typeof(string)),
                 new DataColumn("PP-ARES", typeof(decimal))
                 });
@@ -1917,10 +1954,20 @@ namespace ProjectHealthApplication
                         sqlBulkCopy.ColumnMappings.Add("PP-DATE", "PP-DATE");
                         sqlBulkCopy.ColumnMappings.Add("PP-OP-IND", "PP-OP");
                         sqlBulkCopy.ColumnMappings.Add("PP-CL-IND", "PP-CL");
+                        sqlBulkCopy.ColumnMappings.Add("PP-DIF(OP-CL)", "PP-DIF(OP-CL)");
+                        sqlBulkCopy.ColumnMappings.Add("PP-DIF(CL-OP)", "PP-DIF(CL-OP)");
                         sqlBulkCopy.ColumnMappings.Add("PP-S1C1", "PP-C1");
                         sqlBulkCopy.ColumnMappings.Add("PP-S1C2", "PP-C2");
                         sqlBulkCopy.ColumnMappings.Add("PP-S1C3", "PP-C3");
-                        sqlBulkCopy.ColumnMappings.Add("HI VOL", "HI VOL");
+                        sqlBulkCopy.ColumnMappings.Add("PP-N1", "PP-N1");
+                        sqlBulkCopy.ColumnMappings.Add("PP-N11", "PP-N11");
+                        sqlBulkCopy.ColumnMappings.Add("PP-N2", "PP-N2");
+                        sqlBulkCopy.ColumnMappings.Add("PP-N3", "PP-N3");
+                        sqlBulkCopy.ColumnMappings.Add("PP-N4", "PP-N4");
+                        sqlBulkCopy.ColumnMappings.Add("PP-N5", "PP-N5");
+                        sqlBulkCopy.ColumnMappings.Add("PP-N6/TOT", "PP-N6/TOT");
+                        sqlBulkCopy.ColumnMappings.Add("PP-AVG", "PP-AVG");
+                        sqlBulkCopy.ColumnMappings.Add("PP-N1-N2", "PP-N1-N2");
                         sqlBulkCopy.ColumnMappings.Add("PP-IRES", "PP-IRES");
                         sqlBulkCopy.ColumnMappings.Add("PP-ARES", "PP-ARES");
                         sqlcon.Open();
