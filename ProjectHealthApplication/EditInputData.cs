@@ -13,7 +13,7 @@ namespace ProjectHealthApplication
 {
     public partial class EditInputData : Form
     {
-        SqlConnection sqlcon = new SqlConnection(@"Data Source=localhost;Initial Catalog=ProjectHealth;Integrated Security=True;");
+        SqlConnection sqlcon = new SqlConnection(@"Data Source=L99816120\MSSQLSERVER01;Initial Catalog=ProjectHealth;Integrated Security=True;");
         public EditInputData()
         {
             InitializeComponent();

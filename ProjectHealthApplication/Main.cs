@@ -23,7 +23,7 @@ namespace ProjectHealthApplication
         //constr = ConfigurationManager.ConnectionStrings["getconn"].ToString();
         //sqlcon = new SqlConnection(constr);
         ConnectionStringSettingsCollection settings = ConfigurationManager.ConnectionStrings;
-        SqlConnection sqlcon = new SqlConnection(@"Data Source=localhost;Initial Catalog=ProjectHealth;Integrated Security=True;");
+        SqlConnection sqlcon = new SqlConnection(@"Data Source=L99816120\MSSQLSERVER01;Initial Catalog=ProjectHealth;Integrated Security=True;");
         public Main()
         {
             InitializeComponent();
@@ -240,7 +240,7 @@ namespace ProjectHealthApplication
                 cmd.CommandTimeout = 3600000;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Calculation Completed Successfully.");
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT [ITEM_NO],	[PR-DATE],	[PRCL-IND],	[330-IND],	[S1C2],	[UD1],	[PRCL/PRCL-IND-CNT1],	[UD2],	[PRCL/PRCL-IND-CNT2],	[UD3],	[PRCL/PRCL-IND-CNT3],	[PRCL/C2-CNT1],	[PRCL/C2-CNT2],	[PRCL/C3-CNT3],	[RED/INC],	[PP-RNG-UD],	[GAP-LMT],	[IND-GAP],	[LIND],	[MIND],	[Res9],	[Res8],	[Res7],	[Res6],	[Res5],	[Res4],	[Res3],	[Res2],	[Res1],	[TOT], [ALL-CNT(P/N)],	[GREEN],[ACC/TOT],[3COL/NET], [ACC/3COL],	[COMM],	[IRES], [PRFIN-IND],[UD1] AS [_UD1],[PRCL/330IND-R1-C],[UD2] AS [_UD2],[PRCL/330IND-R2-C],[UD3] AS [_UD3],[PRCL/330IND-R3-C],[PR-S1C1],[PR-S1C2],[PR-S1C3],[MinNoOfCells],[PR-DATE],[2COL/NET],	[4COL/NET],	[3COL/ST/ALIGNED],	[3COL/ST/GAP],	[S1/LH/CNT/SUM],	[S2/LH/CNT/SUM],	[S3/LH/CNT/SUM],	[LH-MINUS-SUM/S1+S2+S3(ADD ONLY MINUSES, ELSE 0)], [NO-OF-Ls/NO-OF-Hs],[ACC/X],[RED/AVG-POS],[RED/AVG-NEG],NULL,[RED-P/13&12&23ROWS-TR],[RED-N/13&12&23ROWS-TR],NULL,[UP/SUM],[DW/SUM],NULL,[UP/CNT],[DW/CNT],NULL,[13&12&23/UP/CNT],[13&12&23/ DW/CNT],NULL,[UP/AMT-AVG],[DW/AMT-AVG],[ACC],NULL,[DIFF/330IN-PRCL],[PP-PRCL-PPCL/DIF(OP-CL)//NET-AV],[NET-AVG],[TR],NULL,[PP-PRCL-PPOP/33IND-PPCL/NET-AVG] FROM[dbo].[ProjectHelathEntryResult] ORDER BY ITEM_NO ASC, [RED/INC] desc", sqlcon);
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT [ITEM_NO],	[PR-DATE],	[PRCL-IND],	[330-IND],	[S1C2],	[UD1],	[PRCL/PRCL-IND-CNT1],	[UD2],	[PRCL/PRCL-IND-CNT2],	[UD3],	[PRCL/PRCL-IND-CNT3],	[PRCL/C2-CNT1],	[PRCL/C2-CNT2],	[PRCL/C3-CNT3],	[RED/INC],	[PP-RNG-UD],	[GAP-LMT],	[IND-GAP],	[LIND],	[MIND],	[Res9],	[Res8],	[Res7],	[Res6],	[Res5],	[Res4],	[Res3],	[Res2],	[Res1],	[TOT], [ALL-CNT(P/N)],	[GREEN],[ACC/TOT],[3COL/NET], [ACC/3COL],	[COMM],	[IRES], [PRFIN-IND],[UD1] AS [_UD1],[PRCL/330IND-R1-C],[UD2] AS [_UD2],[PRCL/330IND-R2-C],[UD3] AS [_UD3],[PRCL/330IND-R3-C],[PR-S1C1],[PR-S1C2],[PR-S1C3],[MinNoOfCells],[PR-DATE],[2COL/NET],	[4COL/NET],	[3COL/ST/ALIGNED],	[3COL/ST/GAP],	[S1/LH/CNT/SUM],	[S2/LH/CNT/SUM],	[S3/LH/CNT/SUM],	[LH-MINUS-SUM/S1+S2+S3(ADD ONLY MINUSES, ELSE 0)], [NO-OF-Ls/NO-OF-Hs],[ACC/X],[RED/AVG-POS],[RED/AVG-NEG],NULL,[RED-P/13&12&23ROWS-TR],[RED-N/13&12&23ROWS-TR],NULL,[UP/SUM],[DW/SUM],NULL,[UP/CNT],[DW/CNT],NULL,[13&12&23/UP/CNT],[13&12&23/ DW/CNT],NULL,[UP/AMT-AVG],[DW/AMT-AVG],[ACC],NULL,[DIFF/330IN-PRCL],[PP-PRCL-PPCL/DIF(OP-CL)/UD],[NET-AVG],	[TR/DIF-DIF],[TR],[ACC/TR],	[PP-PRCL-PPCL(CLST-RNG)/DIF(OP-CL)/NXT-UD],[PP-PDCLST/NXT/NET-AVG],	[ACC/PPDFN],  [PR-PRCL-PPCL(CLST-RNG)/DIF(OP-CL)/UD],[PR-PRCL-DIF/NET-AVG],	[ACC/PR/PD],[PR-PRCL-PRCL(CLST-RNG)/DIF(OP-CL)/NXT-UD],[PR-PRCL-DIF/NXT-NET-AVG] ,[ACC/PRCL-DIF],[IRES],NULL,[PP-PRCL-PPOP/33IND-PPCL/NET-AVG] FROM[dbo].[ProjectHelathEntryResult] ORDER BY ITEM_NO ASC, [RED/INC] desc", sqlcon);
                 DataSet ds = new DataSet();
                 sda.Fill(ds, "ProjectHelathEntryResult");
                 dgv3.DataSource = ds;
@@ -394,8 +394,34 @@ namespace ProjectHealthApplication
                                 namedWorksheet.Cells[1, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
                                 namedWorksheet.Cells[1, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[1, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[1, 81].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 81].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[1, 82].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 82].Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
                                 namedWorksheet.Cells[1, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                namedWorksheet.Cells[1, 83].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[1, 83].Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
+                                namedWorksheet.Cells[1, 84].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 84].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[1, 85].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 85].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                namedWorksheet.Cells[1, 86].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 86].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[1, 87].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 87].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[1, 88].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 88].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                namedWorksheet.Cells[1, 89].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 89].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[1, 90].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 90].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[1, 91].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 91].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                namedWorksheet.Cells[1, 92].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 92].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[1, 93].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 93].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[1, 95].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[1, 95].Style.Fill.BackgroundColor.SetColor(Color.Blue);
 
                                 namedWorksheet.View.FreezePanes(2, 1);
                                 //Rng.AutoFitColumns();
@@ -420,7 +446,7 @@ namespace ProjectHealthApplication
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.Gold);
                                    
                                 }
-                                else if(k==3)
+                                else if(k==3 || k == 80 || k == 85 || k == 88 || k == 91)
                                 {
                                     Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.Green);
@@ -440,13 +466,13 @@ namespace ProjectHealthApplication
                                     Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.DarkGray);
                                 }
-                                else if (k == 14)
+                                else if (k == 14 || k == 84 || k == 87 || k == 90)
                                 {
                                     Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.Violet);
                                     
                                 }
-                                else if (k == 15)
+                                else if (k == 15 || k == 81 || k == 82)
                                 {
                                     Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
@@ -482,7 +508,7 @@ namespace ProjectHealthApplication
                                     Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.LawnGreen);
                                 }
-                                else if (k == 61 || k == 64 || k == 67 || k == 70 || k == 77 || k == 82)
+                                else if (k == 61 || k == 64 || k == 67 || k == 70 || k == 77 || k == 94)
                                 {
                                     Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.Blue);
@@ -492,13 +518,18 @@ namespace ProjectHealthApplication
                                     Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.Green);
                                 }
+                                else if(k == 83 || k == 86 || k == 89 || k == 92)
+                                {
+                                    Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    Rng.Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                }
                                 else
                                 {
                                     Rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     Rng.Style.Fill.BackgroundColor.SetColor(Color.White);
                                 }
 
-                                if(k == 61 || k == 64 || k == 67 || k == 70 || k == 73 || k == 77 || k == 82)
+                                if(k == 61 || k == 64 || k == 67 || k == 70 || k == 73 || k == 77 || k == 94)
                                 {
                                     namedWorksheet.Column(k + 1).Width = 2;
                                 }
@@ -582,8 +613,34 @@ namespace ProjectHealthApplication
                                     namedWorksheet.Cells[i, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
                                     namedWorksheet.Cells[i, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     namedWorksheet.Cells[i, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                    namedWorksheet.Cells[i, 81].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 81].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                    namedWorksheet.Cells[i, 82].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 82].Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
                                     namedWorksheet.Cells[i, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                    namedWorksheet.Cells[i, 83].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                    namedWorksheet.Cells[i, 83].Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
+                                    namedWorksheet.Cells[i, 84].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 84].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                    namedWorksheet.Cells[i, 85].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 85].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                    namedWorksheet.Cells[i, 86].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 86].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                    namedWorksheet.Cells[i, 87].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 87].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                    namedWorksheet.Cells[i, 88].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 88].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                    namedWorksheet.Cells[i, 89].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 89].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                    namedWorksheet.Cells[i, 90].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 90].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                    namedWorksheet.Cells[i, 91].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 91].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                    namedWorksheet.Cells[i, 92].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 92].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                    namedWorksheet.Cells[i, 93].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 93].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                    namedWorksheet.Cells[i, 95].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 95].Style.Fill.BackgroundColor.SetColor(Color.Blue);
 
                                 }
                             }
@@ -647,8 +704,34 @@ namespace ProjectHealthApplication
                                     namedWorksheet.Cells[i, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
                                     namedWorksheet.Cells[i, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     namedWorksheet.Cells[i, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                    namedWorksheet.Cells[i, 81].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 81].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                    namedWorksheet.Cells[i, 82].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 82].Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
                                     namedWorksheet.Cells[i, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                    namedWorksheet.Cells[i, 83].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                    namedWorksheet.Cells[i, 83].Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
+                                    namedWorksheet.Cells[i, 84].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 84].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                    namedWorksheet.Cells[i, 85].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 85].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                    namedWorksheet.Cells[i, 86].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 86].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                    namedWorksheet.Cells[i, 87].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 87].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                    namedWorksheet.Cells[i, 88].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 88].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                    namedWorksheet.Cells[i, 89].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 89].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                    namedWorksheet.Cells[i, 90].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 90].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                    namedWorksheet.Cells[i, 91].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 91].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                    namedWorksheet.Cells[i, 92].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 92].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                    namedWorksheet.Cells[i, 93].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 93].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                    namedWorksheet.Cells[i, 95].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                    namedWorksheet.Cells[i, 95].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                                 }
                             }
                             //MessageBox.Show(namedWorksheet.Cells[i, 1].Value.ToString());
@@ -926,26 +1009,143 @@ namespace ProjectHealthApplication
                                 cmdL_LL6.ExecuteNonQuery();
                                 //END NEW COL
 
-                                namedWorksheet.Cells[mm, 62].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                namedWorksheet.Cells[mm, 62].Style.Fill.BackgroundColor.SetColor(Color.Blue);
-                                namedWorksheet.Cells[mm, 65].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                namedWorksheet.Cells[mm, 65].Style.Fill.BackgroundColor.SetColor(Color.Blue);
-                                namedWorksheet.Cells[mm, 68].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                namedWorksheet.Cells[mm, 68].Style.Fill.BackgroundColor.SetColor(Color.Blue);
-                                namedWorksheet.Cells[mm, 71].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                namedWorksheet.Cells[mm, 71].Style.Fill.BackgroundColor.SetColor(Color.Blue);
-                                namedWorksheet.Cells[mm, 74].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                namedWorksheet.Cells[mm, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
-                                namedWorksheet.Cells[mm, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                namedWorksheet.Cells[mm, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
-                                namedWorksheet.Cells[mm, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                namedWorksheet.Cells[mm, 83].Style.Fill.BackgroundColor.SetColor(Color.Blue);
-                            }
-                            if (Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "ST_INC")
-                            {
-                                Q = Convert.ToDecimal(namedWorksheet.Cells[mm, 30].Value);
-                                S = Convert.ToDecimal(namedWorksheet.Cells[mm, 34].Value);
-                                v = namedWorksheet.Cells[mm, 31].Value.ToString();
+                                var T_LIRES = Convert.ToDecimal(String.IsNullOrEmpty(namedWorksheet.Cells[mm - 1, 37].Value.ToString()) ? "0" : namedWorksheet.Cells[mm - 1, 37].Value.ToString());
+                                //MessageBox.Show(T_LIRES.ToString());
+                                var StrL = Convert.ToString(String.IsNullOrEmpty(namedWorksheet.Cells[mm, 81].Value.ToString())? "0/0" : namedWorksheet.Cells[mm, 81].Value.ToString());
+                                Decimal resultRDL_4;
+
+                                var StrRDL_4 = "SELECT dbo.fnCalculateNET(" + "'" + StrL.ToString().Trim() + "'" + ")";
+
+                                using (SqlCommand cmdRDL_4 = new SqlCommand(StrRDL_4, sqlcon))
+                                {
+                                    resultRDL_4 = Convert.ToDecimal(cmdRDL_4.ExecuteScalar());
+                                    if(resultRDL_4 <=0 && T_LIRES<=0)
+                                    {
+                                        namedWorksheet.Cells[mm, 93].Value = "C";
+                                    }
+                                    else if (resultRDL_4 > 0 && T_LIRES > 0)
+                                    {
+                                        namedWorksheet.Cells[mm, 93].Value = "C";
+                                    }
+                                    else
+                                    {
+                                        namedWorksheet.Cells[mm, 93].Value = "W";
+                                    }
+
+                                    //MessageBox.Show(resultRDL_4.ToString());
+
+                                }
+                                //MessageBox.Show(namedWorksheet.Cells[mm, 84].Value.ToString());
+                                namedWorksheet.Cells[mm, 82].Value = namedWorksheet.Cells[mm - 1, 82].Value;
+                                namedWorksheet.Cells[mm, 83].Value = namedWorksheet.Cells[mm - 1, 83].Value;
+                                namedWorksheet.Cells[mm, 86].Value = namedWorksheet.Cells[mm - 1, 86].Value;
+                                namedWorksheet.Cells[mm, 87].Value = namedWorksheet.Cells[mm - 1, 87].Value;
+                                namedWorksheet.Cells[mm, 88].Value = namedWorksheet.Cells[mm - 1, 88].Value;
+                                namedWorksheet.Cells[mm, 89].Value = namedWorksheet.Cells[mm - 1, 89].Value;
+                                namedWorksheet.Cells[mm, 90].Value = namedWorksheet.Cells[mm - 1, 90].Value;
+                                namedWorksheet.Cells[mm, 91].Value = namedWorksheet.Cells[mm - 1, 91].Value;
+                                namedWorksheet.Cells[mm, 92].Value = namedWorksheet.Cells[mm - 1, 92].Value;
+                                namedWorksheet.Cells[mm, 94].Value = namedWorksheet.Cells[mm - 1, 94].Value;
+
+                                namedWorksheet.Cells[mm - 1, 82].Value = null;
+                                namedWorksheet.Cells[mm - 2, 82].Value = null;
+                                namedWorksheet.Cells[mm - 3, 82].Value = null;
+                                namedWorksheet.Cells[mm + 1, 82].Value = null;
+                                namedWorksheet.Cells[mm + 2, 82].Value = null;
+                                namedWorksheet.Cells[mm + 3, 82].Value = null;
+
+                                namedWorksheet.Cells[mm - 1, 83].Value = null;
+                                namedWorksheet.Cells[mm - 2, 83].Value = null;
+                                namedWorksheet.Cells[mm - 3, 83].Value = null;
+                                namedWorksheet.Cells[mm + 1, 83].Value = null;
+                                namedWorksheet.Cells[mm + 2, 83].Value = null;
+                                namedWorksheet.Cells[mm + 3, 83].Value = null;
+
+                                namedWorksheet.Cells[mm - 1, 86].Value = null;
+                                namedWorksheet.Cells[mm - 2, 86].Value = null;
+                                namedWorksheet.Cells[mm - 3, 86].Value = null;
+                                namedWorksheet.Cells[mm + 1, 86].Value = null;
+                                namedWorksheet.Cells[mm + 2, 86].Value = null;
+                                namedWorksheet.Cells[mm + 3, 86].Value = null;
+
+                                namedWorksheet.Cells[mm - 1, 87].Value = null;
+                                namedWorksheet.Cells[mm - 2, 87].Value = null;
+                                namedWorksheet.Cells[mm - 3, 87].Value = null;
+                                namedWorksheet.Cells[mm + 1, 87].Value = null;
+                                namedWorksheet.Cells[mm + 2, 87].Value = null;
+                                namedWorksheet.Cells[mm + 3, 87].Value = null;
+
+                                namedWorksheet.Cells[mm - 1, 88].Value = null;
+                                namedWorksheet.Cells[mm - 2, 88].Value = null;
+                                namedWorksheet.Cells[mm - 3, 88].Value = null;
+                                namedWorksheet.Cells[mm + 1, 88].Value = null;
+                                namedWorksheet.Cells[mm + 2, 88].Value = null;
+                                namedWorksheet.Cells[mm + 3, 88].Value = null;
+
+                                namedWorksheet.Cells[mm - 1, 89].Value = null;
+                                namedWorksheet.Cells[mm - 2, 89].Value = null;
+                                namedWorksheet.Cells[mm - 3, 89].Value = null;
+                                namedWorksheet.Cells[mm + 1, 89].Value = null;
+                                namedWorksheet.Cells[mm + 2, 89].Value = null;
+                                namedWorksheet.Cells[mm + 3, 89].Value = null;
+
+                                namedWorksheet.Cells[mm - 1, 90].Value = null;
+                                namedWorksheet.Cells[mm - 2, 90].Value = null;
+                                namedWorksheet.Cells[mm - 3, 90].Value = null;
+                                namedWorksheet.Cells[mm + 1, 90].Value = null;
+                                namedWorksheet.Cells[mm + 2, 90].Value = null;
+                                namedWorksheet.Cells[mm + 3, 90].Value = null;
+
+                                namedWorksheet.Cells[mm - 1, 91].Value = null;
+                                namedWorksheet.Cells[mm - 2, 91].Value = null;
+                                namedWorksheet.Cells[mm - 3, 91].Value = null;
+                                namedWorksheet.Cells[mm + 1, 91].Value = null;
+                                namedWorksheet.Cells[mm + 2, 91].Value = null;
+                                namedWorksheet.Cells[mm + 3, 91].Value = null;
+
+                                namedWorksheet.Cells[mm - 1, 92].Value = null;
+                                namedWorksheet.Cells[mm - 2, 92].Value = null;
+                                namedWorksheet.Cells[mm - 3, 92].Value = null;
+                                namedWorksheet.Cells[mm + 1, 92].Value = null;
+                                namedWorksheet.Cells[mm + 2, 92].Value = null;
+                                namedWorksheet.Cells[mm + 3, 92].Value = null;
+
+                                namedWorksheet.Cells[mm - 1, 94].Value = null;
+                                namedWorksheet.Cells[mm - 2, 94].Value = null;
+                                namedWorksheet.Cells[mm - 3, 94].Value = null;
+                                namedWorksheet.Cells[mm + 1, 94].Value = null;
+                                namedWorksheet.Cells[mm + 2, 94].Value = null;
+                                namedWorksheet.Cells[mm + 3, 94].Value = null;
+
+                                String StrL_LL7 = "SP_UPDATECOL828788899091";
+                                SqlCommand cmdL_LL7 = new SqlCommand();
+                                cmdL_LL7.Connection = sqlcon;
+                                cmdL_LL7.CommandText = StrL_LL7;
+                                cmdL_LL7.CommandType = CommandType.StoredProcedure;
+                                //MessageBox.Show(L_ITEMNO.ToString().Trim());
+                                cmdL_LL7.Parameters.Add("@VAR_ITEMNO", SqlDbType.Int).Value = Convert.ToInt32(L_ITEMNO.ToString().Trim());
+                                //MessageBox.Show("'" + L_ITEMNO.ToString().Trim() + "U" + "'");
+                                cmdL_LL7.CommandTimeout = 3600000;
+                                cmdL_LL7.ExecuteNonQuery();
+                                //END NEW COL
+
+                                namedWorksheet.Cells[mm, 84].Value = namedWorksheet.Cells[mm -1, 84].Value.ToString();
+                                namedWorksheet.Cells[mm, 85].Value = namedWorksheet.Cells[mm - 1, 85].Value.ToString();
+
+                                namedWorksheet.Cells[mm - 1, 84].Value = null;
+                                namedWorksheet.Cells[mm - 2, 84].Value = null;
+                                namedWorksheet.Cells[mm - 3, 84].Value = null;
+                                namedWorksheet.Cells[mm + 1, 84].Value = null;
+                                namedWorksheet.Cells[mm + 2, 84].Value = null;
+                                namedWorksheet.Cells[mm + 3, 84].Value = null;
+
+                                namedWorksheet.Cells[mm - 1, 85].Value = null;
+                                namedWorksheet.Cells[mm - 2, 85].Value = null;
+                                namedWorksheet.Cells[mm - 3, 85].Value = null;
+                                namedWorksheet.Cells[mm + 1, 85].Value = null;
+                                namedWorksheet.Cells[mm + 2, 85].Value = null;
+                                namedWorksheet.Cells[mm + 3, 85].Value = null;
+
 
                                 namedWorksheet.Cells[mm, 62].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[mm, 62].Style.Fill.BackgroundColor.SetColor(Color.Blue);
@@ -959,8 +1159,82 @@ namespace ProjectHealthApplication
                                 namedWorksheet.Cells[mm, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
                                 namedWorksheet.Cells[mm, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[mm, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 81].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 81].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 82].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 82].Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
                                 namedWorksheet.Cells[mm, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                namedWorksheet.Cells[mm, 83].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 83].Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
+                                namedWorksheet.Cells[mm, 84].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 84].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[mm, 85].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 85].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                namedWorksheet.Cells[mm, 86].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 86].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 87].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 87].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[mm, 88].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 88].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                namedWorksheet.Cells[mm, 89].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 89].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 90].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 90].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[mm, 91].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 91].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                namedWorksheet.Cells[mm, 92].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 92].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 93].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 93].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[mm, 95].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 95].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                            }
+                            if (Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "ST_INC")
+                            {
+                                Q = Convert.ToDecimal(namedWorksheet.Cells[mm, 30].Value);
+                                S = Convert.ToDecimal(namedWorksheet.Cells[mm, 34].Value);
+                                v = namedWorksheet.Cells[mm, 31].Value.ToString();
+
+                                
+                                namedWorksheet.Cells[mm, 62].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 62].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 65].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 65].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 68].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 68].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 71].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 71].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 74].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 81].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 81].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 82].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 82].Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
+                                namedWorksheet.Cells[mm, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 83].Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
+                                namedWorksheet.Cells[mm, 84].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 84].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[mm, 85].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 85].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                namedWorksheet.Cells[mm, 86].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 86].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 87].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 87].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[mm, 88].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 88].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                namedWorksheet.Cells[mm, 89].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 89].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 90].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 90].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[mm, 91].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 91].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                namedWorksheet.Cells[mm, 92].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 92].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 93].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 93].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[mm, 95].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 95].Style.Fill.BackgroundColor.SetColor(Color.Blue);
                             }
                             if (Convert.ToString(namedWorksheet.Cells[mm, 15].Value) == "T_RI")
                             {
@@ -976,8 +1250,34 @@ namespace ProjectHealthApplication
                                 namedWorksheet.Cells[mm, 74].Style.Fill.BackgroundColor.SetColor(Color.Green);
                                 namedWorksheet.Cells[mm, 78].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                 namedWorksheet.Cells[mm, 78].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 81].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 81].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 82].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 82].Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
                                 namedWorksheet.Cells[mm, 83].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                namedWorksheet.Cells[mm, 83].Style.Fill.BackgroundColor.SetColor(Color.Blue);
+                                namedWorksheet.Cells[mm, 83].Style.Fill.BackgroundColor.SetColor(Color.PeachPuff);
+                                namedWorksheet.Cells[mm, 84].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 84].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[mm, 85].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 85].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                namedWorksheet.Cells[mm, 86].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 86].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 87].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 87].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[mm, 88].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 88].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                namedWorksheet.Cells[mm, 89].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 89].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 90].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 90].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[mm, 91].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 91].Style.Fill.BackgroundColor.SetColor(Color.Violet);
+                                namedWorksheet.Cells[mm, 92].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 92].Style.Fill.BackgroundColor.SetColor(Color.Green);
+                                namedWorksheet.Cells[mm, 93].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 93].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                namedWorksheet.Cells[mm, 95].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                namedWorksheet.Cells[mm, 95].Style.Fill.BackgroundColor.SetColor(Color.Blue);
 
                                 for (int l = 1; l <= dgv3.ColumnCount; l++)
                                 {
@@ -2032,7 +2332,7 @@ namespace ProjectHealthApplication
                     DataTable dtExcelData = new DataTable();
 
                     //[OPTIONAL]: It is recommended as otherwise the data will be considered as String by default.
-                    dtExcelData.Columns.AddRange(new DataColumn[24] { new DataColumn("PR-ITEM-NO", typeof(int)),
+                    dtExcelData.Columns.AddRange(new DataColumn[25] { new DataColumn("PR-ITEM-NO", typeof(int)),
                 new DataColumn("PR-DATE", typeof(DateTime)),
                 new DataColumn("PROP", typeof(decimal)),
                 new DataColumn("PR-S2C1", typeof(decimal)),
@@ -2055,7 +2355,8 @@ namespace ProjectHealthApplication
                 new DataColumn("PR-330IND", typeof(decimal)),
                 new DataColumn("PRFIN-IND", typeof(decimal)),
                 new DataColumn("PR-IRES", typeof(string)),
-                new DataColumn("PR-ARES", typeof(string))
+                new DataColumn("PR-ARES", typeof(string)),
+                new DataColumn("DIF(330-PRCL)",typeof(string))
                 
             });
 
@@ -2095,7 +2396,7 @@ namespace ProjectHealthApplication
                         sqlBulkCopy.ColumnMappings.Add("PRFIN-IND", "PRFIN-IND");
                         sqlBulkCopy.ColumnMappings.Add("PR-IRES", "PR-IRES");
                         sqlBulkCopy.ColumnMappings.Add("PR-ARES", "PR-ARES");
-                        
+                        sqlBulkCopy.ColumnMappings.Add("DIF(330-PRCL)", "DIF(330-PRCL)");
                         sqlcon.Open();
                         sqlBulkCopy.WriteToServer(dtExcelData);
                         MessageBox.Show("PR File Uploaded successfully.");

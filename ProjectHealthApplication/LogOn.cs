@@ -16,7 +16,7 @@ namespace ProjectHealthApplication
     {
         //static string str = ConfigurationManager.ConnectionStrings["SQLConnstring"].ConnectionString;
         //SqlConnection sqlconn = new SqlConnection(str);
-        SqlConnection sqlconn = new SqlConnection(@"Data Source=localhost;Initial Catalog=ProjectHealth;Integrated Security=True;");
+        SqlConnection sqlconn = new SqlConnection(@"Data Source=L99816120\MSSQLSERVER01;Initial Catalog=ProjectHealth;Integrated Security=True;");
         public static string UsrID = "";
         public LogOn()
         {

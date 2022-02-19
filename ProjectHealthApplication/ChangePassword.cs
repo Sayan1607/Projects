@@ -13,7 +13,7 @@ namespace ProjectHealthApplication
 {
     public partial class ChangePassword : Form
     {
-        SqlConnection sqcon = new SqlConnection(@"Data Source=localhost;Initial Catalog=ProjectHealth;Integrated Security=True;");
+        SqlConnection sqcon = new SqlConnection(@"Data Source=L99816120\MSSQLSERVER01;Initial Catalog=ProjectHealth;Integrated Security=True;");
         //string UsrID = "";
         public ChangePassword()
         {
